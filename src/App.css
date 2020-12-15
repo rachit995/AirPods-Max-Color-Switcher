@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+body {
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app__container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 980px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.app__leftColumn {
+  flex-basis: 50%;
+  max-width: 50%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.app__rightColumn {
+  flex-basis: 41.66667%;
+  max-width: 41.66667%;
+  margin-left: 8.33333%;
+  box-sizing: border-box;
+  padding: 0;
+  min-width: 0;
+  padding-top: 120px;
 }
 
-.App-link {
-  color: #61dafb;
+.app__AirPodsMaxImage {
+  width: 450px;
+  height: auto;
+  min-height: 450px;
+  padding-top: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app__lc_new {
+  font-size: 17px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
+  padding-bottom: 3px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  display: block;
+  color: #bf4800;
+}
+
+.app__lc_h1 {
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-family: SF Pro Display, SF Pro Icons, AOS Icons, Helvetica Neue,
+    Helvetica, Arial, sans-serif;
+  padding-bottom: 11px;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+.app__lc_h2 {
+  font-size: 17px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: SF Pro Text, SF Pro Icons, AOS Icons, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
+  font-weight: 600;
+}
+
+.app__footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.app__footer a {
+  place-items: center;
+  display: flex;
+  color: #a2a2a2;
+  text-decoration: none;
+}
+
+.app__footer a:hover {
+  color: #1d1d1f;
+}
+
+.app__footer a h4 {
+  margin: 0.3rem;
 }
