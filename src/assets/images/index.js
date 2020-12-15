@@ -123,7 +123,7 @@ import s334 from './3-3-4.jpg'
 import s333 from './3-3-3.jpg'
 import s311 from './3-1-1.jpg'
 
-export default {
+const images = {
   s111,
   s213,
   s211,
@@ -249,3 +249,5 @@ export default {
   s333,
   s311
 }
+
+export default images
