@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .app__selectLabel {
-  @apply text-xl py-3;
+  @apply text-xl py-3 mt-3;
 }
 
 .app__select{

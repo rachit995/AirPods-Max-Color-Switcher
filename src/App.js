@@ -2,29 +2,39 @@ import React, { useState } from 'react'
 import './App.css';
 import images from './assets/images'
 import { FaRandom } from 'react-icons/fa'
+import s0Icon from './assets/images/color-icons/0.png'
+import s1Icon from './assets/images/color-icons/1.png'
+import s2Icon from './assets/images/color-icons/2.png'
+import s3Icon from './assets/images/color-icons/3.png'
+import s4Icon from './assets/images/color-icons/4.png'
 
 const AIRPODS_MAX_COST = 549.00
 const AIRPODS_MAX_EAR_CUSHION_COST = 69.00
 const COLORS = {
   0: {
     label: "Space Grey",
-    href: "space-gray"
+    href: "space-gray",
+    icon: s0Icon,
   },
   1: {
     label: "Silver",
-    href: "silver"
+    href: "silver",
+    icon: s1Icon,
   },
   2: {
     label: "Green",
-    href: "green"
+    href: "green",
+    icon: s2Icon,
   },
   3: {
     label: "Sky Blue",
-    href: "sky-blue"
+    href: "sky-blue",
+    icon: s3Icon,
   },
   4: {
     label: "Pink",
-    href: "pink"
+    href: "pink",
+    icon: s4Icon,
   },
 }
 const AIRPODS_MAX_BUY_LINK = "https://www.apple.com/shop/buy-airpods/airpods-max"
@@ -39,7 +49,7 @@ function App() {
   const [rightColor, setRightColor] = useState(getRandomColor())
   const [leftColor, setLeftColor] = useState(getRandomColor())
   const imageUrl = images[`s${headPhoneColor}${leftColor}${rightColor}`]
-  const generateOptions = () => Object.keys(COLORS).map((key) => <option value={key}>{ COLORS[key]?.label }</option>)
+  const generateOptions = () => Object.keys(COLORS).map((key) => <option value={key}>{COLORS[key]?.label}</option>)
   let totalCost = AIRPODS_MAX_COST
   if (leftColor === rightColor && headPhoneColor === leftColor) {
     totalCost = AIRPODS_MAX_COST
@@ -74,34 +84,43 @@ function App() {
                   </div>
                   <h1 className="app__selectLabel">
                     Body Color
-                </h1>
-                  <select
-                    className='app__select'
-                    onChange={(e) => { setHeadPhoneColor(parseInt(e.target.value, 10)) }}
-                    value={headPhoneColor}
-                  >
-                    {generateOptions()}
-                  </select>
+                  </h1>
+                  <div className='flex place-items-center'>
+                    <img src={COLORS[headPhoneColor]?.icon} className='h-6 w-6 mr-3' alt={COLORS[headPhoneColor]?.label}></img>
+                    <select
+                      className='app__select'
+                      onChange={(e) => { setHeadPhoneColor(parseInt(e.target.value, 10)) }}
+                      value={headPhoneColor}
+                    >
+                      {generateOptions()}
+                    </select>
+                  </div>
                   <h1 className="app__selectLabel">
                     Left Ear Cushion Color
-                </h1>
-                  <select
-                    className='app__select'
-                    onChange={(e) => { setLeftColor(parseInt(e.target.value, 10)) }}
-                    value={leftColor}
-                  >
-                    {generateOptions()}
-                  </select>
+                  </h1>
+                  <div className='flex place-items-center'>
+                    <img src={COLORS[leftColor]?.icon} className='h-6 w-6 mr-3' alt={COLORS[headPhoneColor]?.label}></img>
+                    <select
+                      className='app__select'
+                      onChange={(e) => { setLeftColor(parseInt(e.target.value, 10)) }}
+                      value={leftColor}
+                    >
+                      {generateOptions()}
+                    </select>
+                  </div>
                   <h1 className="app__selectLabel">
                     Right Ear Cushion Color
-                </h1>
-                  <select
-                    className='app__select'
-                    onChange={(e) => { setRightColor(parseInt(e.target.value, 10)) }}
-                    value={rightColor}
-                  >
-                    {generateOptions()}
-                  </select>
+                  </h1>
+                  <div className='flex place-items-center'>
+                    <img src={COLORS[rightColor]?.icon} className='h-6 w-6 mr-3' alt={COLORS[headPhoneColor]?.label}></img>
+                    <select
+                      className='app__select'
+                      onChange={(e) => { setRightColor(parseInt(e.target.value, 10)) }}
+                      value={rightColor}
+                    >
+                      {generateOptions()}
+                    </select>
+                  </div>
                   <h1 className="text-4xl pt-8 py-6 font-medium">
                     {`$${totalCost}`}
                   </h1>
