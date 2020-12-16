@@ -7,6 +7,11 @@ import s1Icon from './assets/images/color-icons/1.png'
 import s2Icon from './assets/images/color-icons/2.png'
 import s3Icon from './assets/images/color-icons/3.png'
 import s4Icon from './assets/images/color-icons/4.png'
+import c0Icon from './assets/images/cushion-color-icons/0.jpeg'
+import c1Icon from './assets/images/cushion-color-icons/1.jpeg'
+import c2Icon from './assets/images/cushion-color-icons/2.jpeg'
+import c3Icon from './assets/images/cushion-color-icons/3.jpeg'
+import c4Icon from './assets/images/cushion-color-icons/4.jpeg'
 
 const AIRPODS_MAX_COST = 549.00
 const AIRPODS_MAX_EAR_CUSHION_COST = 69.00
@@ -15,26 +20,31 @@ const COLORS = {
     label: "Space Grey",
     href: "space-gray",
     icon: s0Icon,
+    cushion: c0Icon,
   },
   1: {
     label: "Silver",
     href: "silver",
     icon: s1Icon,
+    cushion: c1Icon,
   },
   2: {
     label: "Green",
     href: "green",
     icon: s2Icon,
+    cushion: c2Icon,
   },
   3: {
     label: "Sky Blue",
     href: "sky-blue",
     icon: s3Icon,
+    cushion: c3Icon,
   },
   4: {
     label: "Pink",
     href: "pink",
     icon: s4Icon,
+    cushion: c4Icon,
   },
 }
 const AIRPODS_MAX_BUY_LINK = "https://www.apple.com/shop/buy-airpods/airpods-max"
@@ -99,7 +109,7 @@ function App() {
                     Left Ear Cushion Color
                   </h1>
                   <div className='flex place-items-center'>
-                    <img src={COLORS[leftColor]?.icon} className='h-6 w-6 mr-3' alt={COLORS[headPhoneColor]?.label}></img>
+                    <img src={COLORS[leftColor]?.cushion} className='h-6 w-6 mr-3' alt={COLORS[headPhoneColor]?.label}></img>
                     <select
                       className='app__select'
                       onChange={(e) => { setLeftColor(parseInt(e.target.value, 10)) }}
@@ -112,7 +122,7 @@ function App() {
                     Right Ear Cushion Color
                   </h1>
                   <div className='flex place-items-center'>
-                    <img src={COLORS[rightColor]?.icon} className='h-6 w-6 mr-3' alt={COLORS[headPhoneColor]?.label}></img>
+                    <img src={COLORS[rightColor]?.cushion} className='h-6 w-6 mr-3' alt={COLORS[headPhoneColor]?.label}></img>
                     <select
                       className='app__select'
                       onChange={(e) => { setRightColor(parseInt(e.target.value, 10)) }}
