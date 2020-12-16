@@ -3,31 +3,58 @@ import './App.css';
 import images from './assets/images'
 import { FaRandom } from 'react-icons/fa'
 
+const AIRPODS_MAX_COST = 549.00
+const AIRPODS_MAX_EAR_CUSHION_COST = 69.00
+const COLORS = {
+  0: {
+    label: "Space Grey",
+    href: "space-gray"
+  },
+  1: {
+    label: "Silver",
+    href: "silver"
+  },
+  2: {
+    label: "Green",
+    href: "green"
+  },
+  3: {
+    label: "Sky Blue",
+    href: "sky-blue"
+  },
+  4: {
+    label: "Pink",
+    href: "pink"
+  },
+}
+const AIRPODS_MAX_BUY_LINK = "https://www.apple.com/shop/buy-airpods/airpods-max"
+
 function getRandomColor() {
   return Math.floor(Math.random() * 5)
 }
+
 
 function App() {
   const [headPhoneColor, setHeadPhoneColor] = useState(getRandomColor())
   const [rightColor, setRightColor] = useState(getRandomColor())
   const [leftColor, setLeftColor] = useState(getRandomColor())
   const imageUrl = images[`s${headPhoneColor}${leftColor}${rightColor}`]
-  function generateOptions() {
-    return (
-      <>
-        <option value='0'>Space Grey</option>
-        <option value='1'>Silver</option>
-        <option value='2'>Green</option>
-        <option value='3'>Sky Blue</option>
-        <option value='4'>Pink</option>
-      </>
-    )
+  const generateOptions = () => Object.keys(COLORS).map((key) => <option value={key}>{ COLORS[key]?.label }</option>)
+  let totalCost = AIRPODS_MAX_COST
+  if (leftColor === rightColor && headPhoneColor === leftColor) {
+    totalCost = AIRPODS_MAX_COST
+  } else if (((headPhoneColor === leftColor) || (headPhoneColor === rightColor)) && (rightColor !== leftColor)) {
+    totalCost = totalCost + AIRPODS_MAX_EAR_CUSHION_COST
+  }
+  else if (leftColor === rightColor) {
+    totalCost = totalCost + AIRPODS_MAX_EAR_CUSHION_COST
+  } else if (leftColor !== rightColor) {
+    totalCost = totalCost + (2 * AIRPODS_MAX_EAR_CUSHION_COST)
   }
   return (
     <>
       <div className='container mx-auto'>
         <div className='grid grid-cols-1 gap-2'>
-
           <div className='grid grid-cols-1 md:grid-cols-3 gap-2'>
             <div className="col-span-2">
               <div class="grid grid-cols-1 gap-2 place-items-center min-w-full p-4">
@@ -38,43 +65,53 @@ function App() {
               <div className="grid grid-cols-1 gap-2 place-items-center h-full p-10 md:p-4">
                 <div>
                   <div>
-                    <div class="app__lc_new">
+                    <div className="app__lc_new">
                       New
                   </div>
-                    <h1 class="text-5xl font-bold py-2">
+                    <h1 className="text-5xl font-bold py-2">
                       AirPods Max
-                  </h1>
+                    </h1>
                   </div>
-                  <h1 class="app__selectLabel">
+                  <h1 className="app__selectLabel">
                     Body Color
                 </h1>
                   <select
                     className='app__select'
-                    onChange={(e) => { setHeadPhoneColor(e.target.value) }}
+                    onChange={(e) => { setHeadPhoneColor(parseInt(e.target.value, 10)) }}
                     value={headPhoneColor}
                   >
                     {generateOptions()}
                   </select>
-                  <h1 class="app__selectLabel">
+                  <h1 className="app__selectLabel">
                     Left Ear Cushion Color
                 </h1>
                   <select
                     className='app__select'
-                    onChange={(e) => { setLeftColor(e.target.value) }}
+                    onChange={(e) => { setLeftColor(parseInt(e.target.value, 10)) }}
                     value={leftColor}
                   >
                     {generateOptions()}
                   </select>
-                  <h1 class="app__selectLabel">
+                  <h1 className="app__selectLabel">
                     Right Ear Cushion Color
                 </h1>
                   <select
                     className='app__select'
-                    onChange={(e) => { setRightColor(e.target.value) }}
+                    onChange={(e) => { setRightColor(parseInt(e.target.value, 10)) }}
                     value={rightColor}
                   >
                     {generateOptions()}
                   </select>
+                  <h1 className="text-4xl pt-8 py-6 font-medium">
+                    {`$${totalCost}`}
+                  </h1>
+                  <hr></hr>
+                  <button
+                    className="py-2 px-9 bg-primary rounded-lg text-white my-6 font-medium w-full"
+                    onClick={() => window.open(`${AIRPODS_MAX_BUY_LINK}/${COLORS[headPhoneColor]?.href}`)}
+                  >
+                    Add to Bag
+                    </button>
                 </div>
               </div>
             </div>
