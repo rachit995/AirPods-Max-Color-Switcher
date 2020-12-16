@@ -78,7 +78,7 @@ function App() {
           <div className='grid grid-cols-1 md:grid-cols-3 gap-2'>
             <div className="col-span-2">
               <div class="grid grid-cols-1 gap-2 place-items-center min-w-full p-4">
-                <img src={imageUrl} alt='' className='app__AirPodsMaxImage' />
+                <img src={imageUrl} alt={`${COLORS[headPhoneColor]?.label}, ${COLORS[leftColor]?.label} & ${COLORS[rightColor]?.label}`} className='app__AirPodsMaxImage' />
               </div>
             </div>
             <div className=''>
@@ -156,7 +156,7 @@ function App() {
       </div>
       <div className="fixed h-12 w-12 bottom-4 right-4">
         <button
-          className="p-3 text-lg shadow-md text-gray bg-gray-300 rounded-full"
+          className="p-3 text-lg shadow-md text-gray-600 bg-gray-300 rounded-full"
           title="Random Color"
           onClick={() => {
             setHeadPhoneColor(getRandomColor())
