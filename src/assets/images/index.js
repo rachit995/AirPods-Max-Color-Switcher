@@ -122,6 +122,7 @@ import s332 from './3-3-2.jpg'
 import s334 from './3-3-4.jpg'
 import s333 from './3-3-3.jpg'
 import s311 from './3-1-1.jpg'
+import s043 from './0-4-3.jpg'
 
 const images = {
   s111,
@@ -247,7 +248,8 @@ const images = {
   s332,
   s334,
   s333,
-  s311
+  s311,
+  s043
 }
 
 export default images
